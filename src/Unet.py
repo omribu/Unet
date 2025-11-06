@@ -22,11 +22,11 @@ from PIL import Image
 print("TensorFlow version:", tf.__version__)
 gpus = tf.config.list_physical_devices('GPU')
 if gpus:
-    print(f"✓ GPU DETECTED: {gpus}")
+    print(f"GPU DETECTED: {gpus}")
     for gpu in gpus:
         tf.config.experimental.set_memory_growth(gpu, True)
 else:
-    print("✗ No GPU detected")
+    print("No GPU detected")
 
 
 seed = 42
@@ -43,9 +43,9 @@ IMG_CHANNELS = 3
 # lr = 1e-4 ## 0.0001
 # ephocs = 100
 
-TRAIN_PATH = '/home/volcani/agribot_ws/Unet/field_images/plowing/train/'
-TEST_PATH = '/home/volcani/agribot_ws/Unet/field_images/plowing/test/'
-MASK_PATH = '/home/volcani/agribot_ws/Unet/field_images/plowing/mask_train/'
+TRAIN_PATH = '/home/volcani/Unet/data/plowing/train/'
+TEST_PATH = '/home/volcani/Unet/data/plowing/test/'
+MASK_PATH = '/home/volcani/Unet/data/plowing/mask_train/'
 
 # Train imgaes
 train_images = [f for f in os.listdir(TRAIN_PATH) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
@@ -159,7 +159,7 @@ checkpointer = ModelCheckpoint('model_for_plowing.h5', verbose=1, save_best_only
 
 callbacks = [
     EarlyStopping(patience=3, monitor='val_loss'),
-    TensorBoard(log_dir='logs')]
+    TensorBoard(log_dir='/home/volcani/Unet/logs/plowing_experiment')]
 
 
 result = model.fit(X_train, Y_train, validation_split=0.1, batch_size=16, epochs=100, callbacks=callbacks)
