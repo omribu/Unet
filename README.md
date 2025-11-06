@@ -24,22 +24,12 @@ The model is designed for line-following navigation strategy for a battery deliv
 - **Output**: Binary segmentation masks for path detection
 - **Application**: Agricultural robot navigation in field environments
 
-## Project Structure
-```
-Unet/
-├── data/              # Training and validation datasets
-├── models/            # Trained model weights
-├── src/               # Source code for training and inference
-```
 
 ## Installation
 ```bash
 # Clone the repository
 git clone git@github.com:omribu/Unet.git
 cd Unet
-
-# Install dependencies
-pip install -r requirements.txt
 ```
 
 ## Model Architecture
@@ -55,4 +45,4 @@ The model is trained on plowed imagery with annotated crop row segmentation mask
 
 ## Results
 
-#*(Add performance metrics, sample outputs, or visualization here)*
+
