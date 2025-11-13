@@ -48,7 +48,7 @@ The model is trained on plowed imagery with annotated crop row segmentation mask
 ### Model Performance
 
 <p align="center">
-  <img src="evaluation_results/confusion_matrix.png" alt="Confusion Matrix" width="400">
+  <img src="evaluation_results/confusion_matrix.png" alt="Confusion Matrix" width="500">
 </p>
 
 The model achieves high accuracy in binary segmentation:
@@ -56,19 +56,20 @@ The model achieves high accuracy in binary segmentation:
 - **Plowed (Class 1)**: 96.10% correctly classified
 - **Overall**: Strong performance with minimal false positives (2.91%) and false negatives (3.90%)
 
-<p align="center">
-  <strong>Sample 1</strong>
+<p align="right">
+  <strong>Image 1 performance</strong>
 </p>
 <p align="center">
-  <img src="evaluation_results/sample_01_10.JPG" alt="Sample 1" width="600">
+  <img src="evaluation_results/sample_01_1.JPG" alt="Image 1" width="600">
 </p>
 
-<p align="center">
-  <strong>Sample 2</strong>
+<p align="right">
+  <strong>Image 2 performance</strong>
 </p>
 <p align="center">
-  <img src="evaluation_results/sample_02_101.JPG" alt="Sample 2" width="600">
+  <img src="evaluation_results/sample_02_10.JPG" alt="Image 2" width="600">
 </p>
+
 
 Each image shows:
 - **Top Left**: Original input image
