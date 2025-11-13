@@ -5,11 +5,11 @@ import json
 #########============  Converts json files saved from imglab after annotation tool to mask ===========###########
 
 # Read the file - as simple txt file
-f = open("/home/volcani/agribot_ws/Unet/train_5_11.json", "r")
+f = open("/home/volcani/Unet/test_mask.json", "r")
 data = json.load(f)  # Load the data
 
-img_dir = "/home/volcani/agribot_ws/Unet/field_images/plowing/train_5_11"
-mask_dir = "/home/volcani/agribot_ws/Unet/field_images/plowing/mask_train_5_11"
+img_dir = "/home/volcani/Unet/data/plowing/test"
+mask_dir = "/home/volcani/Unet/data/plowing/mask_test"
 
 images = data["images"]
 annots = data["annotations"]

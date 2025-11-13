@@ -1,6 +1,10 @@
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1'  # Force CPU
+# os.environ['CUDA_VISIBLE_DEVICES'] = '-1'  # Force CPU
 # os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+# Disable CuDNN to avoid version mismatch
+os.environ['TF_CUDNN_USE_AUTOTUNE'] = '0'
+os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
 import numpy as np
 import cv2
@@ -9,7 +13,6 @@ import tensorflow as tf
 from keras.layers import Conv2D, BatchNormalization, Activation, MaxPool2D, Conv2DTranspose, Concatenate, Input, Lambda, Dropout, MaxPooling2D, Convolution2DTranspose, concatenate
 from keras.models import Model
 from keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau, CSVLogger, TensorBoard
-# from keras import mixed_precision
 from pathlib import Path
 from tqdm import tqdm
 from skimage.io import imread, imshow
@@ -27,6 +30,12 @@ if gpus:
         tf.config.experimental.set_memory_growth(gpu, True)
 else:
     print("No GPU detected")
+
+
+# Check GPU availability
+print("CUDA Available:", tf.test.is_built_with_cuda())
+print("GPU Available:", tf.test.is_gpu_available())
+
 
 
 seed = 42
@@ -67,7 +76,8 @@ for n, id_ in tqdm(enumerate(train_images), total=len(train_images)):
     X_train[n] = img_train  # Fill empty X_train with values from img
 
     # Read the corresponding mask image
-    mask_ = imread(path_mask)
+    mask_ = imread(path_mask, as_gray=True)  
+    mask_ = mask_ / 255.0  
     Y_train[n] = np.expand_dims(mask_, axis=-1)
 
 
@@ -158,7 +168,9 @@ model.summary()
 checkpointer = ModelCheckpoint('model_for_plowing.h5', verbose=1, save_best_only=True)
 
 callbacks = [
-    EarlyStopping(patience=3, monitor='val_loss'),
+    checkpointer,
+    EarlyStopping(patience=10, monitor='val_loss', restore_best_weights=True),
+    ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, min_lr=1e-7),
     TensorBoard(log_dir='/home/volcani/Unet/logs/plowing_experiment')]
 
 
