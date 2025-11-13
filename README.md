@@ -48,7 +48,7 @@ The model is trained on plowed imagery with annotated crop row segmentation mask
 ### Model Performance
 
 <p align="center">
-  <img src="/home/volcani/Unet/evaluation_results/confusion_matrix.png" alt="Confusion Matrix" width="600">
+  <img src="evaluation_results/confusion_matrix.png" alt="Confusion Matrix" width="600">
 </p>
 
 The model achieves high accuracy in binary segmentation:
@@ -57,11 +57,11 @@ The model achieves high accuracy in binary segmentation:
 - **Overall**: Strong performance with minimal false positives (2.91%) and false negatives (3.90%)
 
 <p align="center">
-  <img src="/home/volcani/Unet/evaluation_results/sample_02_10.jpg" alt="Sample 1" width="800">
+  <img src="evaluation_results/sample_02_10.JPG" alt="Sample 1" width="800">
 </p>
 
 <p align="center">
-  <img src="/home/volcani/Unet/evaluation_results/sample_04_101.jpg" alt="Sample 2" width="800">
+  <img src="evaluation_results/sample_04_101.JPG" alt="Sample 2" width="800">
 </p>
 
 Each image shows:
