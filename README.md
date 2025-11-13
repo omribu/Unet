@@ -56,18 +56,18 @@ The model achieves high accuracy in binary segmentation:
 - **Plowed (Class 1)**: 96.10% correctly classified
 - **Overall**: Strong performance with minimal false positives (2.91%) and false negatives (3.90%)
 
-<p align="right">
+<p align="center">
   <strong>Image 1 performance</strong>
 </p>
 <p align="center">
-  <img src="evaluation_results/sample_01_1.JPG" alt="Image 1" width="600">
+  <img src="evaluation_results/sample_01_1.JPG" alt="Image 1" width="700">
 </p>
 
-<p align="right">
+<p align="center">
   <strong>Image 2 performance</strong>
 </p>
 <p align="center">
-  <img src="evaluation_results/sample_02_10.JPG" alt="Image 2" width="600">
+  <img src="evaluation_results/sample_02_10.JPG" alt="Image 2" width="700">
 </p>
 
 
