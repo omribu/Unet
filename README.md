@@ -34,6 +34,11 @@ cd Unet
 
 ## Model Architecture
 
+<p align="center">
+  <img src="Unet_architecture.png" alt="Unet architecture" width="500">
+</p>
+
+
 The Unet architecture consists of:
 - **Encoder**: Downsampling path with convolutional and pooling layers
 - **Decoder**: Upsampling path with transposed convolutions
