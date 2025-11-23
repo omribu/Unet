@@ -35,7 +35,7 @@ cd Unet
 ## Model Architecture
 
 <p align="center">
-  <img src="evaluation_results/Unet_architecture.png" alt="Unet architecture" width="500">
+  <img src="evaluation_results/Unet_architecture.png" alt="Unet architecture" width="300">
 </p>
 
 
